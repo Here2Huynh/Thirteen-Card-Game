@@ -1,0 +1,19 @@
+Change and spoof mac addresses:
+ifconfig en1 | grep ether
+arp -a
+sudo ifconfig en1 ether [mac address to spoof]
+============
+$ sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText "Your message here"
+
+The next time you log out or restart, the message will appear in the log in window. To remove it, use:
+
+$ sudo defaults delete /Library/Preferences/com.apple.loginwindow
+
+============
+Kill dashboard
+
+defaults write com.apple.dashboard mcx-disabled -boolean TRUE
+
+killall Dock
+
+============
