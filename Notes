@@ -1,0 +1,54 @@
+- move validation against other moves
+x- function still does not skip players with empty hands
+  x- skips player with empty hand is the player is the only one with
+    the empty hand
+
+  x- testing multiple hands that are empty - everything is good, i think lol
+  - need to provide exit condition where all hands are done to end the game
+  - perhaps use players_done in game state and make game state end the game
+  - [5h,kh] pass through, need to fix
+    - [qd,qs], [ad,2d] passes through, fix it
+
+  - need to figure how to validate last move
+    - problem is in the check_move_played function
+    - set(c) < set(a)
+    - testing if finish by single card works
+
+- move rankings have not been implemented yet
+- ensure if player is the only player left with a hand then they are the last place
+  - when the other 3 player hands are empty and have places, make the remaining player last place
+
+- need to fix
+┌────┐┌────┐┌────┐
+│A   ││2   ││2   │
+│ ♠ ││ ♣ ││ ♥ │
+│   A││   2││   2│
+└────┘└────┘└────┘
+None
+
+Please enter your move : as,ac
+this is the move made: ['AS', 'AC']
+
+Valid doubles move, returning True
+
+- update HELP & RULES doc
+
+- ┌────┐┌────┐┌────┐┌────┐┌────┐┌────┐┌────┐┌────┐┌────┐┌────┐┌────┐┌────┐┌────┐
+│5   ││5   ││8   ││9   ││9   ││10  ││10  ││J   ││J   ││Q   ││Q   ││A   ││A   │
+│ ♦ ││ ♥ ││ ♥ ││ ♣ ││ ♥ ││ ♠ ││ ♣ ││ ♠ ││ ♣ ││ ♠ ││ ♣ ││ ♠ ││ ♣ │
+│   5││   5││   8││   9││   9││  10││  10││   J││   J││   Q││   Q││   A││   A│
+└────┘└────┘└────┘└────┘└────┘└────┘└────┘└────┘└────┘└────┘└────┘└────┘└────┘
+this instant win condition did not get caught
+- 6 pair check only checks player 1 hand
+
+x- need to check straights algorithm check
+
+- need a means of exit when all hands are empty
+  -changing game_is_over=True
+
+- needs to write unittest for this project
+  - got to use real tests
+  - test first player
+
+- list comprehension formula =
+*result*  = [*transform*    *iteration*         *filter*     ]
